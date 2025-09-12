@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MyApp — Full Screen Landing Page</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    /* General styles */
+    body {
+      margin: 0;
+      text-align: center;
+      scroll-behavior: smooth; /* enables smooth scrolling */
+    }
+    section {
+      min-height: 60vh;           /* Adjusted section height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      color: #070000;
+    }
+    /* Section-specific colors */
+    #home {
+      background-color: #8bb8fd;   /* Blue */
+    }
+    #features {
+      background-color: #f8f9fa;   /* Light gray for contrast */
+    }
+    #download {
+      background-color: #6f42c1;   /* Purple */
+      color: #fff;
+    }
+    footer {
+      background-color: #212529;   /* Dark */
+      color: #adb5bd;
+      padding: 2rem 0;
+    }
+    .icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    .card {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <nav class="navbar bg-light px-3">
+      <a class="navbar-brand" href="#home">My App</a>
+      <div class="d-flex gap-3">
+        <a class="nav-link" href="#home">Home</a>
+        <a class="nav-link" href="#features">About</a>
+        <a class="nav-link" href="#download">Download my App</a>
+      </div>
+      <form class="d-flex ms-auto">
+        <input class="form-control me-2" type="email" placeholder="Email" required>
+        <input class="form-control me-2" type="password" placeholder="Password" required>
+        <button class="btn btn-success">Login</button>
+      </form>
+    </nav>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section id="home">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Organize Your Life with MyApp</h1>
+      <p class="lead mb-4">Track tasks, collaborate with teammates, and stay productive.</p>
+      <a class="btn btn-light btn-lg" href="#download">Get Started</a>
+    </div>
+  </section>
+
+  <!-- ===== Features ===== -->
+  <section id="features">
+    <div class="container min-vh-50 d-flex flex-column justify-content-center">
+      <h2 class="display-5 fw-bold mb-5">Features You’ll Love</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="icon bg-primary text-white mb-3"><i class="bi bi-lightning-fill"></i></div>
+              <h3 class="h5">Quick Tasks</h3>
+              <p>Create tasks in seconds with smart suggestions and shortcuts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="icon bg-success text-white mb-3"><i class="bi bi-people-fill"></i></div>
+              <h3 class="h5">Team Collaboration</h3>
+              <p>Share projects, comment in real time, and assign tasks with ease.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <div class="icon bg-warning text-dark mb-3"><i class="bi bi-shield-lock-fill"></i></div>
+              <h3 class="h5">Secure by Default</h3>
+              <p>End-to-end encryption and regular audits keep your data safe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Download ===== -->
+  <section id="download">
+    <div class="container">
+      <h2 class="fw-bold display-4">Get the App Today</h2>
+      <p class="mb-4 fs-4">Available on iOS, Android, and Web.</p>
+
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <!-- Dummy link to App Store -->
+        <a class="btn btn-light btn-lg" href="https://www.apple.com/app-store/" target="_blank">
+          <i class="bi bi-apple me-2"></i>App Store
+        </a>
+
+        <!-- Dummy link to Google Play -->
+        <a class="btn btn-light btn-lg" href="https://play.google.com/store/games?hl=en_US" target="_blank">
+          <i class="bi bi-google-play me-2"></i>Google Play
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
