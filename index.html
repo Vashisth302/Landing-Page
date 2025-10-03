@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,15 +12,18 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-<style>
+  <style>
     /* General styles */
     body {
       margin: 0;
       text-align: center;
-      scroll-behavior: smooth; /* enables smooth scrolling */
+      scroll-behavior: smooth;
+      /* enables smooth scrolling */
     }
+
     section {
-      min-height: 60vh;           /* Adjusted section height */
+      min-height: 80vh;
+      /* Adjusted section height */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -27,22 +31,38 @@
       padding: 2rem;
       color: #070000;
     }
+
     /* Section-specific colors */
     #home {
-      background-color: #8bb8fd;   /* Blue */
+      background-image: url(bgimage.jpg);
+      background-size: cover;
     }
+
     #features {
-      background-color: #f8f9fa;   /* Light gray for contrast */
+      background-color: #e5dfdf;
+      /* Light gray for contrast */
     }
+
     #download {
-      background-color: #6f42c1;   /* Purple */
+      background-color: #6f42c1;
+      /* Purple */
       color: #fff;
     }
+
     footer {
-      background-color: #212529;   /* Dark */
+      background-color: #212529;
+      /* Dark */
       color: #adb5bd;
       padding: 2rem 0;
+      margin-top: 50px;
     }
+
+    .navbar .nav-link.active {
+      font-weight: bold;
+      color: #110000 !important;
+      /* highlight active link */
+    }
+
     .icon {
       width: 60px;
       height: 60px;
@@ -52,25 +72,27 @@
       justify-content: center;
       font-size: 1.5rem;
     }
+
     .card {
       text-align: center;
     }
   </style>
 </head>
-<body>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="150">
 
   <!-- ===== Navbar ===== -->
   <header>
-    <nav class="navbar bg-light px-3">
+    <nav id="mainNavbar" class="navbar bg-light px-3 fixed-top">
       <a class="navbar-brand" href="#home">My App</a>
       <div class="d-flex gap-3">
         <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#features">About</a>
+        <a class="nav-link" href="#features">Features</a>
         <a class="nav-link" href="#download">Download my App</a>
       </div>
       <form class="d-flex ms-auto">
-        <input class="form-control me-2" type="email" placeholder="Email" required>
-        <input class="form-control me-2" type="password" placeholder="Password" required>
+        <input class="form-control me-2" type="email" placeholder="Email">
+        <input class="form-control me-2" type="password" placeholder="Password">
         <button class="btn btn-success">Login</button>
       </form>
     </nav>
@@ -87,33 +109,37 @@
 
   <!-- ===== Features ===== -->
   <section id="features">
-    <div class="container min-vh-50 d-flex flex-column justify-content-center">
+    <div class="container min-vh-100 d-flex flex-column justify-content-center">
       <h2 class="display-5 fw-bold mb-5">Features You’ll Love</h2>
       <div class="row g-4">
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm h-60">
             <div class="card-body">
               <div class="icon bg-primary text-white mb-3"><i class="bi bi-lightning-fill"></i></div>
               <h3 class="h5">Quick Tasks</h3>
-              <p>Create tasks in seconds with smart suggestions and shortcuts.</p>
+              <p>Create and organize tasks in seconds with smart suggestions, keyboard shortcuts, and intuitive
+                controls. Stay focused with a clutter-free interface that adapts to your workflow.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm h-60">
             <div class="card-body">
               <div class="icon bg-success text-white mb-3"><i class="bi bi-people-fill"></i></div>
               <h3 class="h5">Team Collaboration</h3>
-              <p>Share projects, comment in real time, and assign tasks with ease.</p>
+
+              <p>Work together seamlessly by sharing projects, assigning roles, and commenting in real time. Keep
+                everyone aligned with instant updates and smooth integration across devices.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="card shadow-sm">
+          <div class="card shadow-sm h-60">
             <div class="card-body">
               <div class="icon bg-warning text-dark mb-3"><i class="bi bi-shield-lock-fill"></i></div>
               <h3 class="h5">Secure by Default</h3>
-              <p>End-to-end encryption and regular audits keep your data safe.</p>
+              <p>Your data is protected with end-to-end encryption, regular security audits, and strict privacy
+                controls. From login to collaboration, every action is safeguarded by default.</p>
             </div>
           </div>
         </div>
@@ -144,4 +170,5 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
