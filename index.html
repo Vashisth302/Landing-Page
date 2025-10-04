@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,53 +13,51 @@
 
   <style>
     /* General styles */
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       text-align: center;
-      scroll-behavior: smooth;
-      /* enables smooth scrolling */
+      /* account for fixed navbar height for in-page anchors */
+      padding-top: 72px;
     }
 
     section {
-      min-height: 80vh;
-      /* Adjusted section height */
+      min-height: 80vh;            /* Adjusted section height */
       display: flex;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       padding: 2rem;
       color: #070000;
+      scroll-margin-top: 90px;     /* prevent headings hiding behind fixed navbar */
     }
 
     /* Section-specific colors */
     #home {
       background-image: url(bgimage.jpg);
       background-size: cover;
+      background-position: center;
     }
 
     #features {
-      background-color: #e5dfdf;
-      /* Light gray for contrast */
+      background-color: #e5dfdf;   /* Light gray for contrast */
     }
 
     #download {
-      background-color: #6f42c1;
-      /* Purple */
+      background-color: #6f42c1;   /* Purple */
       color: #fff;
     }
 
     footer {
-      background-color: #212529;
-      /* Dark */
+      background-color: #212529;   /* Dark */
       color: #adb5bd;
       padding: 2rem 0;
       margin-top: 50px;
     }
 
     .navbar .nav-link.active {
-      font-weight: bold;
-      color: #110000 !important;
-      /* highlight active link */
+      font-weight: 600;
+      color: #110000 !important;   /* highlight active link */
     }
 
     .icon {
@@ -73,38 +70,49 @@
       font-size: 1.5rem;
     }
 
-    .card {
-      text-align: center;
+    .card { text-align: center; }
+
+    /* Equal-height feature cards */
+    .feature-card { height: 100%; }
+    .feature-card .card-body { display: flex; flex-direction: column; }
+
+    /* Make the login form wrap nicely inside the collapsed menu on mobile */
+    @media (max-width: 991.98px) {
+      .navbar .login-form .form-control { width: 100%; }
+      .navbar .login-form { gap: .5rem; }
     }
   </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="150">
-
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="100" tabindex="0">
   <!-- ===== Navbar ===== -->
   <header>
-     <nav id="mainNavbar" class="navbar navbar-light bg-light px-3 fixed-top navbar-expand-lg">
-    <a class="navbar-brand" href="#home">My App</a>
+    <nav id="mainNavbar" class="navbar navbar-expand-lg bg-light border-bottom fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home">My App</a>
 
-    <!-- Hamburger button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Hamburger for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <!-- Collapsible area -->
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <div class="d-flex gap-3 ms-lg-3">
-        <a class="nav-link" href="#home">Home</a>
-        <a class="nav-link" href="#features">Features</a>
-        <a class="nav-link" href="#download">Download my App</a>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#download">Download my App</a></li>
+          </ul>
+
+          <!-- Login form (collapses under the links on mobile) -->
+          <form class="login-form d-flex flex-lg-row flex-column ms-lg-3 mt-3 mt-lg-0" role="form">
+            <input class="form-control me-lg-2 mb-2 mb-lg-0" type="email" placeholder="Email">
+            <input class="form-control me-lg-2 mb-2 mb-lg-0" type="password" placeholder="Password">
+            <button class="btn btn-success w-100 w-lg-auto" type="button">Login</button>
+          </form>
+        </div>
       </div>
-      
-      <form class="d-flex ms-auto">
-        <input class="form-control me-2" type="email" placeholder="Email">
-        <input class="form-control me-2" type="password" placeholder="Password">
-        <button class="btn btn-success">Login</button>
-      </form>
     </nav>
   </header>
 
@@ -119,36 +127,35 @@
 
   <!-- ===== Features ===== -->
   <section id="features">
-    <div class="container min-vh-100 d-flex flex-column justify-content-center">
+    <div class="container">
       <h2 class="display-5 fw-bold mb-5">Features You’ll Love</h2>
       <div class="row g-4">
         <div class="col-md-4 d-flex">
-          <div class="card shadow-sm h-60">
-            <div class="card-body d-flex flex-column">
+          <div class="card shadow-sm feature-card w-100">
+            <div class="card-body">
               <div class="icon bg-primary text-white mb-3"><i class="bi bi-lightning-fill"></i></div>
               <h3 class="h5">Quick Tasks</h3>
-              <p>Create and organize tasks in seconds with smart suggestions, keyboard shortcuts, and intuitive
+              <p class="mb-0">Create and organize tasks in seconds with smart suggestions, keyboard shortcuts, and intuitive
                 controls. Stay focused with a clutter-free interface that adapts to your workflow.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 d-flex">
-          <div class="card shadow-sm h-60">
-            <div class="card-body d-flex flex-column">
+          <div class="card shadow-sm feature-card w-100">
+            <div class="card-body">
               <div class="icon bg-success text-white mb-3"><i class="bi bi-people-fill"></i></div>
               <h3 class="h5">Team Collaboration</h3>
-
-              <p>Work together seamlessly by sharing projects, assigning roles, and commenting in real time. Keep
+              <p class="mb-0">Work together seamlessly by sharing projects, assigning roles, and commenting in real time. Keep
                 everyone aligned with instant updates and smooth integration across devices.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 d-flex">
-          <div class="card shadow-sm h-60">
-            <div class="card-body d-flex flex-column">
+          <div class="card shadow-sm feature-card w-100">
+            <div class="card-body">
               <div class="icon bg-warning text-dark mb-3"><i class="bi bi-shield-lock-fill"></i></div>
               <h3 class="h5">Secure by Default</h3>
-              <p>Your data is protected with end-to-end encryption, regular security audits, and strict privacy
+              <p class="mb-0">Your data is protected with end-to-end encryption, regular security audits, and strict privacy
                 controls. From login to collaboration, every action is safeguarded by default.</p>
             </div>
           </div>
@@ -164,21 +171,39 @@
       <p class="mb-4 fs-4">Available on iOS, Android, and Web.</p>
 
       <div class="d-flex justify-content-center gap-3 flex-wrap">
-        <!-- Dummy link to App Store -->
-        <a class="btn btn-light btn-lg" href="https://www.apple.com/app-store/" target="_blank">
+        <a class="btn btn-light btn-lg" href="https://www.apple.com/app-store/" target="_blank" rel="noopener">
           <i class="bi bi-apple me-2"></i>App Store
         </a>
-
-        <!-- Dummy link to Google Play -->
-        <a class="btn btn-light btn-lg" href="https://play.google.com/store/games?hl=en_US" target="_blank">
+        <a class="btn btn-light btn-lg" href="https://play.google.com/store/games?hl=en_US" target="_blank" rel="noopener">
           <i class="bi bi-google-play me-2"></i>Google Play
         </a>
       </div>
     </div>
   </section>
 
+  <footer>
+    <div class="container">
+      <small class="text-muted">© <span id="year"></span> MyApp. All rights reserved.</small>
+    </div>
+  </footer>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
 
+  <script>
+    // Close collapsed navbar when a nav link is clicked (mobile)
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('.navbar-nav .nav-link')) {
+        const nav = document.getElementById('navMenu');
+        if (nav && nav.classList.contains('show')) {
+          const collapse = bootstrap.Collapse.getOrCreateInstance(nav);
+          collapse.hide();
+        }
+      }
+    });
+
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
