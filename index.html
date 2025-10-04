@@ -83,13 +83,23 @@
 
   <!-- ===== Navbar ===== -->
   <header>
-    <nav id="mainNavbar" class="navbar bg-light px-3 fixed-top">
-      <a class="navbar-brand" href="#home">My App</a>
-      <div class="d-flex gap-3">
+     <nav id="mainNavbar" class="navbar navbar-light bg-light px-3 fixed-top navbar-expand-lg">
+    <a class="navbar-brand" href="#home">My App</a>
+
+    <!-- Hamburger button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible area -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="d-flex gap-3 ms-lg-3">
         <a class="nav-link" href="#home">Home</a>
         <a class="nav-link" href="#features">Features</a>
         <a class="nav-link" href="#download">Download my App</a>
       </div>
+      
       <form class="d-flex ms-auto">
         <input class="form-control me-2" type="email" placeholder="Email">
         <input class="form-control me-2" type="password" placeholder="Password">
